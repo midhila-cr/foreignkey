@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Student Details</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c2d6d6;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        th, td {
+            padding: 10px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #3d3e3d;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Include Navbar -->
+    {% include 'nav.html' %}
+
+    <!-- Show Student Details Table -->
+    <div class="container">
+        <h2 style="text-align: center;">Student Details</h2>
+
+        <!-- Check if there are students -->
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                    <th>Joining Date</th>
+                    <th>Course</th>
+                    <th>Course Fee</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in students %}
+
+                <tr>
+                    <td>{{s.student_name}}</td>
+                    <td>{{s.student_address}}</td>
+                    <td>{{s.student_age}}</td>
+                    <td>{{s.joining_date}}</td>
+                    <td>{{s.course.course_name}}</td>
+                    <td>{{s.course.fee}}</td>
+                    <td>
+                        <a href="{% url 'edit_student' s.id %}" class="action-btn edit-btn">Edit</a>
+                        <a href="{% url 'delete' s.id %}" class="action-btn delete-btn">Delete</a>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    
+    </div>
+
+</body>
+</html>

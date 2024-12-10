@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #388b7a;
+            padding: 10px 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar .left-menu {
+            display: flex;
+        }
+
+        .navbar .right-menu {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="left-menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'addcourses' %}">Add Course</a>
+            <a href="{% url 'addstudent' %}">Add Student</a>
+            <a href="{% url 'show_details' %}">Show Student Details</a>
+        </div>
+    </nav>
+
+</body>
+</html>
